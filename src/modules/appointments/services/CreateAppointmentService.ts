@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
-import { startOfHour } from 'date-fns';
 import { injectable, inject } from 'tsyringe';
+import { startOfHour } from 'date-fns';
 
 import AppError from '@shared/errors/AppError';
 
