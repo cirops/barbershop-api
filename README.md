@@ -1,4 +1,13 @@
-# Recuperação de senha
+# GoBarber - Agendamento de Barbeiros
+
+## Running the project;
+- `yarn` on the root folder;
+- Make a copy of your .env.example 
+- Setup a postgres connection, with the details specified in ormconfig.json (you can use a local postgres installation or docker);
+- Make sure you have a database already created inside postgres, with the same name as in ormconfig.json;
+- Setup a redis connection, with the port the same as in your .env file;
+
+## Recuperação de senha
 
 **RF**
 
