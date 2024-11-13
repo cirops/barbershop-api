@@ -1,7 +1,7 @@
 {
-  "name": "primeiro-projeto-node",
+  "name": "barber-shop-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
     "build": "tsc",

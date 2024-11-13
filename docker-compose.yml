@@ -3,16 +3,29 @@ version: '3.8'
 services:
   postgres:
     image: postgres:latest
-    container_name: barbershop-db
+    container_name: barbershop-postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: docker
-      POSTGRES_DB: barbershop-db
+      POSTGRES_DB: barbershop-pg
     ports:
       - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
 
+  mongodb:
+    image: mongo:latest
+    container_name: barbershop-mg
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo_user
+      MONGO_INITDB_ROOT_PASSWORD: mongo_pass
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
 volumes:
   pg_data:
+    driver: local
+  mongo_data:
     driver: local
