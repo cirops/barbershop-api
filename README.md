@@ -1,81 +1,80 @@
-# GoBarber - Agendamento de Barbeiros
+# BarberShop - Barber Appointment Scheduling
 
-## Running the project;
-- `yarn` on the root folder;
-- Make a copy of your .env.example 
-- Setup a postgres connection, with the details specified in ormconfig.json (you can use a local postgres installation or docker);
-- Make sure you have a database already created inside postgres, with the same name as in ormconfig.json;
-- Setup a redis connection, with the port the same as in your .env file;
+## Running the project:
+- Run `yarn` in the root folder;
+- Make a copy of your `.env.example` file;
+- Set up a PostgreSQL connection using the details specified in `ormconfig.json` (you can use a local PostgreSQL installation or Docker);
+- Ensure you have a database created in PostgreSQL with the same name as specified in `ormconfig.json`;
+- Set up a Redis connection with the port matching the one in your `.env` file.
 
-## Recuperação de senha
+## Password Recovery
 
-**RF**
+**Requirements**
 
- - O usuário deve poder recuperar sua senha informando o seu e-mail;
- - O usuário deve receber um e-mail com instruções de recuperação de senha;
- - O usuário deve poder resetar sua senha;
+- Users should be able to recover their password by providing their email;
+- Users should receive an email with password recovery instructions;
+- Users should be able to reset their password.
 
-**RNF**
+**Non-Functional Requirements**
 
-- Utilizar mailtrap para testar envios em ambiente de dev;
-- Utilizar Amazon SES para envios em produção;
-- O envio de e-mails deve acontecer em segundo plano (background job);
+- Use Mailtrap for testing email sends in the development environment;
+- Use Amazon SES for email sends in production;
+- Email sends should be handled in the background (background job).
 
-**RN**
+**Rules**
 
-- O link enviado por e-mail para resetar senha deve expirar em 2h;
-- O usuário precisa confirmar a nova senha ao resetar;
+- The reset password link sent by email should expire in 2 hours;
+- Users need to confirm their new password when resetting it.
 
-# Atualização do perfil
+# Profile Update
 
-**RF**
+**Requirements**
 
-- O usuário deve poder atualizar seu nome, email e senha;
+- Users should be able to update their name, email, and password.
 
-**RNF**
+**Non-Functional Requirements**
 
-**RN**
+**Rules**
 
-- O usuário não pode alterar seu e-mail para um e-mail já utilizado;
-- Para atualizar sua senha, o usuário deve informar a senha antiga;
-- Para atualizar sua senha, o usuário precisa confirmar a nova senha;
+- Users cannot change their email to one that’s already in use;
+- To update their password, users must provide their old password;
+- Users must confirm their new password when updating it.
 
-# Painel do prestador
+# Provider Dashboard
 
-**RF**
+**Requirements**
 
-- O usuário deve poder listar seus agendamentos de um dia específico;
-- O prestador deve receber uma notificação sempre que houver um novo agendamento;
-- O prestador deve poder visualizar as notificações não lidas;
--
+- Users should be able to list their appointments for a specific day;
+- Providers should receive a notification whenever a new appointment is made;
+- Providers should be able to view unread notifications.
 
-**RNF**
+**Non-Functional Requirements**
 
-- Os agendamentos do prestador no dia devem ser armazenados em cache;
-- As notificações do prestador devem ser armazenadas no MongoDB;
-- As notificações do prestador devem ser enviadas em tempo real utilizando Socket.io;
+- Provider's daily appointments should be stored in cache;
+- Provider's notifications should be stored in MongoDB;
+- Provider's notifications should be sent in real-time using Socket.io.
 
-**RN**
+**Rules**
 
-- A notificação deve ter um status de lida ou não-lida para que o prestador possa controlar;
+- Notifications should have a read/unread status so that the provider can manage them.
 
-# Agendamento de serviços
+# Service Appointments
 
-**RF**
+**Requirements**
 
-- O usuário deve poder listar todos prestadores de serviço cadastrados;
-- O usuário deve poder listar os dias de um mês com pelo menos um horário disponível de um prestador;
-- O usuário deve poder listar horários disponíveis em um dia específico de um prestador;
-- O usuário deve poder realizar um novo agendamento com um prestador;
+- Users should be able to list all registered service providers;
+- Users should be able to view the days of a month with at least one available time slot for a provider;
+- Users should be able to view available time slots on a specific day for a provider;
+- Users should be able to schedule a new appointment with a provider.
 
-**RNF**
+**Non-Functional Requirements**
 
-- A listagem de prestadores deve ser armazenada em cache;
+- The provider listing should be stored in cache.
 
-**RN**
+**Rules**
 
-- Cada agendamento deve durar 1h exatamente;
-- Os agendamentos devem estar disponíveis entre 8h às 18h (Primeiro às 8h, último às 17h);
-- O usuário não pode agendar em um horário já ocupado;
-- O usuário não pode agendar em um horário que já passou;
-- O usuário não pode agendar serviços consigo mesmo;
+- Each appointment should last exactly 1 hour;
+- Appointments should be available between 8 AM and 6 PM (first at 8 AM, last at 5 PM);
+- Users cannot schedule an appointment at an already booked time;
+- Users cannot schedule an appointment in the past;
+- Users cannot book services with themselves.
