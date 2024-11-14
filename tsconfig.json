@@ -1,27 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "./build",
     "strict": true,
+    "noImplicitAny": false,
     "strictPropertyInitialization": false,
-    "baseUrl": "./src",
-    "allowJs": true,
+    "baseUrl": "./",
     "paths": {
-      "@modules/*": ["modules/*"],
-      "@config/*": ["config/*"],
-      "@shared/*": ["shared/*"]
+      "@modules/*": ["./src/modules/*"],
+      "@config/*": ["./src/shared/config/*"],
+      "@errors/*": ["./src/shared/errors/*"],
+      "@constants/*": ["./src/shared/constants/*"],
+      "@providers/*": ["./src/shared/providers/*"],
+      "@utils/*": ["./src/shared/utils/*"]
     },
+    "rootDirs": ["./src", "./test", "./scripts"],
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  },
-  "exclude": [
-    "coverage",
-    "jest.config.js",
-    "prettier.config.js"
-  ]
+  }
 }

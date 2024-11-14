@@ -14,8 +14,8 @@ export default {
 
   defaults: {
     from: {
-      email: 'equipe@gobarber.com.br',
-      name: 'Equipe GoBarber',
+      email: 'equipe@barbershop.com.br',
+      name: 'Equipe BarberShop',
     },
   },
 } as IMailConfig;
